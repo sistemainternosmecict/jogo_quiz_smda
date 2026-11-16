@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Quiz SaquaPet — CSS Global & Touch Shield (Samsung Flip 72" Single-Touch)
+   ========================================================================== */
+
+:root {
+  /* Paleta Divertida da Causa Animal (Alto Contraste) */
+  --saqua-sun: #ffb703;
+  --saqua-sun-light: #ffd166;
+  --saqua-sun-dark: #d97706;
+
+  --saqua-blue: #0284c7;
+  --saqua-blue-light: #0ea5e9;
+  --saqua-blue-dark: #0369a1;
+  --saqua-blue-soft: #e0f2fe;
+
+  --saqua-turquoise: #06d6a0;
+  --saqua-turquoise-dark: #0d9488;
+  --saqua-turquoise-soft: #ccfbf1;
+
+  --saqua-true: #10b981;
+  --saqua-true-light: #34d399;
+  --saqua-true-dark: #059669;
+
+  --saqua-false: #ef4444;
+  --saqua-false-light: #f87171;
+  --saqua-false-dark: #dc2626;
+
+  --saqua-cream: #fffbf0;
+  --saqua-cream-warm: #fef3c7;
+  --saqua-surface: #ffffff;
+
+  --saqua-ink: #0f172a;
+  --saqua-ink-secondary: #334155;
+  --saqua-border-soft: #cbd5e1;
+
+  --saqua-font-sans: 'Segoe UI Rounded', 'Quicksand', 'Nunito', 'Trebuchet MS',
+    system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Estampa SVG sutil offline (patinhas, ossinhos e corações) */
+  --saqua-pattern-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg transform='rotate(-18 38 40)' fill='%230284C7' fill-opacity='0.085'%3E%3Cellipse cx='38' cy='48' rx='11' ry='9'/%3E%3Cellipse cx='25' cy='34' rx='4.2' ry='5.8'/%3E%3Cellipse cx='33.5' cy='28' rx='4.2' ry='5.8'/%3E%3Cellipse cx='43.5' cy='28' rx='4.2' ry='5.8'/%3E%3Cellipse cx='51' cy='34' rx='4.2' ry='5.8'/%3E%3C/g%3E%3Cg transform='rotate(24 118 38)' fill='%23D97706' fill-opacity='0.09'%3E%3Crect x='103' y='33' width='30' height='10' rx='4'/%3E%3Ccircle cx='103' cy='33' r='6'/%3E%3Ccircle cx='103' cy='43' r='6'/%3E%3Ccircle cx='133' cy='33' r='6'/%3E%3Ccircle cx='133' cy='43' r='6'/%3E%3C/g%3E%3Cg transform='rotate(-14 42 117)' fill='%23DB2777' fill-opacity='0.075'%3E%3Cpath d='M42 133 C42 133 25 122 25 111 C25 105 29.5 101 35 101 C38.5 101 40.8 103 42 105.5 C43.2 103 45.5 101 49 101 C54.5 101 59 105 59 111 C59 122 42 133 42 133 Z'/%3E%3C/g%3E%3Cg transform='rotate(16 120 120)' fill='%230D9488' fill-opacity='0.085'%3E%3Cellipse cx='120' cy='127' rx='9' ry='7.5'/%3E%3Cellipse cx='109' cy='116' rx='3.4' ry='4.8'/%3E%3Cellipse cx='116.5' cy='111' rx='3.4' ry='4.8'/%3E%3Cellipse cx='124.5' cy='111' rx='3.4' ry='4.8'/%3E%3Cellipse cx='131' cy='116' rx='3.4' ry='4.8'/%3E%3C/g%3E%3C/svg%3E");
+
+  color-scheme: light;
+  font-family: var(--saqua-font-sans);
+  color: var(--saqua-ink);
+  background-color: var(--saqua-cream);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Touch Shield Global: bloqueia seleção, zoom por pinça, scroll e callouts */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+}
+
+html,
+body,
+#root {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden !important;
+  position: fixed;
+  inset: 0;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: var(--saqua-font-sans);
+  color: var(--saqua-ink);
+  background-color: var(--saqua-cream);
+  background-image:
+    var(--saqua-pattern-svg),
+    radial-gradient(circle at 12% 14%, rgba(255, 183, 3, 0.16) 0%, transparent 42%),
+    radial-gradient(circle at 88% 18%, rgba(6, 214, 160, 0.14) 0%, transparent 40%),
+    linear-gradient(165deg, var(--saqua-cream) 0%, #fffdf5 48%, var(--saqua-cream-warm) 100%);
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  background-size: clamp(160px, 13vw, 300px) clamp(160px, 13vw, 300px), 100% 100%, 100% 100%, 100% 100%;
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+img,
+svg {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  touch-action: none;
+  appearance: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 4px solid var(--saqua-blue);
+  outline-offset: 3px;
+}
