@@ -23,7 +23,7 @@
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-  padding: clamp(12px, 2dvh, 36px) clamp(16px, 3vw, 60px);
+  padding: 0;
 }
 
 .attract-bg-decorations {
@@ -89,69 +89,41 @@
 
 .attract-header {
   position: relative;
-  z-index: 2;
+  z-index: 10;
   flex: 0 0 auto;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: clamp(12px, 2vw, 38px);
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: clamp(8px, 1.2dvh, 22px) clamp(16px, 2.4vw, 42px);
-  background: rgba(255, 255, 255, 0.94);
-  border: 3px solid rgba(2, 132, 199, 0.26);
-  border-radius: clamp(20px, 2.6vw, 44px);
-  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.12);
+  justify-content: space-between;
+  gap: clamp(10px, 1.5vw, 26px);
+  padding: clamp(8px, 1.1dvh, 18px) clamp(14px, 2.2vw, 40px);
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 3px solid rgba(2, 132, 199, 0.22);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
   pointer-events: none;
 }
 
 .attract-logo {
-  height: clamp(50px, 8dvh, 175px);
+  height: clamp(44px, 6.2dvh, 132px);
   width: auto;
-  max-width: clamp(110px, 17vw, 420px);
   object-fit: contain;
   background: #ffffff;
-  border-radius: clamp(12px, 1.4vw, 26px);
-  padding: clamp(3px, 0.5dvh, 10px);
+  border-radius: clamp(10px, 1vw, 18px);
+  padding: 2px;
   flex-shrink: 0;
   pointer-events: none;
 }
 
-.attract-title-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: clamp(2px, 0.4dvh, 10px);
-  text-align: left;
-}
-
-.attract-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: clamp(3px, 0.45dvh, 10px) clamp(10px, 1.2vw, 26px);
-  border-radius: 999px;
-  background: var(--saqua-blue-soft);
-  border: 2px solid var(--saqua-blue);
-  color: var(--saqua-blue-dark);
-  font-size: clamp(0.7rem, 1.35dvh, 1.85rem);
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .attract-main-title {
-  font-size: clamp(1.7rem, 4.3dvh, 5.8rem);
+  font-size: clamp(1.2rem, 2.5dvh, 3.4rem);
   font-weight: 900;
-  line-height: 1.05;
+  line-height: 1.08;
   letter-spacing: -0.02em;
   color: var(--saqua-ink);
 }
 
 .attract-subtitle {
-  font-size: clamp(0.95rem, 2.05dvh, 2.75rem);
+  font-size: clamp(0.78rem, 1.45dvh, 1.95rem);
   font-weight: 800;
   color: var(--saqua-blue-dark);
 }
@@ -166,7 +138,7 @@
   align-items: center;
   justify-content: space-evenly;
   gap: clamp(8px, 1.3dvh, 28px);
-  padding: clamp(6px, 1dvh, 22px) 0;
+  padding: clamp(10px, 1.4dvh, 28px) clamp(16px, 3vw, 60px);
   pointer-events: none;
 }
 
@@ -268,7 +240,7 @@
   align-items: center;
   justify-content: center;
   gap: clamp(10px, 1.6dvh, 34px);
-  padding-top: clamp(6px, 1dvh, 18px);
+  padding: clamp(6px, 1dvh, 18px) clamp(16px, 3vw, 60px) clamp(12px, 2dvh, 36px);
 }
 
 .order-mode-selector {
@@ -1242,6 +1214,10 @@
 }
 
 @media (max-width: 780px) {
+  .attract-hud {
+    display: none;
+  }
+
   .question-card-row,
   .question-content-row {
     flex-direction: column;

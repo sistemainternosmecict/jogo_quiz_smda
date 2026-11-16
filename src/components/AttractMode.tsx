@@ -81,16 +81,44 @@ export const AttractMode: Component<AttractModeProps> = (props) => {
       </div>
 
       <header class="attract-header">
-        <img
-          src="/logo_edu.png"
-          alt="Logo Educação SMDA Saquarema"
-          class="attract-logo"
-          draggable={false}
-        />
-        <div class="attract-title-block">
-          <span class="attract-badge">SMDA • SAQUAREMA</span>
-          <h1 class="attract-main-title">Quiz SaquaPet</h1>
-          <p class="attract-subtitle">Conhecendo a Causa Animal! 🐾</p>
+        <div class="header-left">
+          <img
+            src="/logo_edu.png"
+            alt="Logo Educação SMDA Saquarema"
+            class="header-logo attract-logo"
+            draggable={false}
+          />
+          <div class="header-branding">
+            <span class="header-tag">SMDA • SAQUAREMA</span>
+            <h1 class="header-title attract-main-title">Quiz SaquaPet</h1>
+            <p class="attract-subtitle">Conhecendo a Causa Animal! 🐾</p>
+          </div>
+        </div>
+
+        <div class="header-hud attract-hud" aria-label="Resumo do desafio">
+          <div class="hud-item">
+            <span class="hud-icon" aria-hidden="true">🐾</span>
+            <div class="hud-meta">
+              <span class="hud-label">Desafios</span>
+              <span class="hud-value">25 Perguntas</span>
+            </div>
+          </div>
+
+          <div class="hud-item">
+            <span class="hud-icon" aria-hidden="true">📚</span>
+            <div class="hud-meta">
+              <span class="hud-label">Temas</span>
+              <span class="hud-value">5 Categorias</span>
+            </div>
+          </div>
+
+          <div class="hud-item">
+            <span class="hud-icon" aria-hidden="true">🎯</span>
+            <div class="hud-meta">
+              <span class="hud-label">Formato</span>
+              <span class="hud-value">V ou F</span>
+            </div>
+          </div>
         </div>
       </header>
 

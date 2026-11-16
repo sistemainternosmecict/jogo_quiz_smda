@@ -1,33 +1,34 @@
 # Quiz SaquaPet – Conhecendo a Causa Animal! 🐾
 
-Aplicação educativa interativa em formato de quiz (**Verdadeiro ou Falso**) desenvolvida para a **SMDA (Secretaria Municipal dos Direitos dos Animais)** da Prefeitura de Saquarema e o programa **SaquaPet**, projetada especialmente para operar em tela grande touchscreen **Samsung Flip 72"** (single-touch, modo quiosque e 100% offline).
+Aplicação educativa interativa em formato de quiz (**Verdadeiro ou Falso**) desenvolvida em **SolidJS**, **TypeScript** e **Vite** para a **SMDA (Secretaria Municipal dos Direitos dos Animais)** da **Prefeitura Municipal de Saquarema** e para o programa municipal **SaquaPet**.
+
+O jogo foi projetado sob medida para operar em **lousas digitais Samsung Flip de 72 polegadas (4K, touchscreen sem multitouch)** em escolas, feiras literárias, campanhas de adoção e eventos educativos voltados a **crianças de até 13 anos** e público geral, funcionando **100% offline**.
 
 ---
 
-## 🎯 Objetivo Pedagógico
+## 🎯 Objetivo Pedagógico e Público-Alvo
 
-O **Quiz SaquaPet** aproxima crianças de **até 13 anos**, famílias e visitantes de feiras escolares ou ações educativas da causa animal de forma lúdica, acolhedora e acessível:
+O **Quiz SaquaPet** transforma temas essenciais de guarda responsável e bem-estar animal em uma jornada interativa acessível para crianças e famílias:
 
-- Ensinar cuidados essenciais de **saúde preventiva** (vacinação e castração);
-- Orientar sobre **alimentação segura, água fresca e bem-estar** de cães e gatos;
-- Conscientizar sobre **guarda responsável**, combate aos maus-tratos e prevenção ao abandono (com linguagem não violenta e orientação para pedir ajuda a um adulto de confiança);
-- Apresentar o trabalho da **SMDA** e os serviços do programa municipal **SaquaPet**, reforçando que proteger os animais é um trabalho em equipe entre a Prefeitura e toda a população.
+- **Público-alvo:** Crianças e pré-adolescentes de **até 13 anos**, acompanhados ou não por educadores, pais e monitores da SMDA.
+- **Aprendizado imediato sem punição:** Após cada resposta (*Verdadeiro* ou *Falso*), o jogo apresenta uma explicação educativa lúdica e acolhedora confirmando o porquê da resposta correta.
+- **Conscientização institucional:** Apresenta de forma clara para as crianças o papel da **SMDA** e os serviços gratuitos e políticas públicas oferecidas pelo programa **SaquaPet** no município de Saquarema.
 
 ---
 
-## 📚 As 5 Categorias & Gabarito Oficial (25 Perguntas)
+## 📚 Os 5 Blocos Temáticos (25 Perguntas de V ou F)
 
-O jogo conta com **25 afirmações** de **Verdadeiro (V)** ou **Falso (F)** divididas igualmente em **5 categorias** (5 perguntas por tema), com explicação educativa imediata após cada resposta:
+As **25 afirmações** são divididas igualmente em **5 categorias** (5 questões por bloco), com cores e ícones distintos na trilha superior do jogo:
 
-| Faixa | Categoria Oficial | Ícone | Cor de Destaque |
-|---|---|---|---|
-| **Q1 – Q5** | Vacinação | 🩺 | Azul (`#2563EB`) |
-| **Q6 – Q10** | Castração | 🐶 | Roxo (`#7C3AED`) |
-| **Q11 – Q15** | Alimentação e cuidados | 🍎 | Âmbar (`#D97706`) |
-| **Q16 – Q20** | Maus-tratos e abandono | ❤️ | Rosa (`#DB2777`) |
-| **Q21 – Q25** | SMDA e SaquaPet | 🏛️ | Azul SaquaPet (`#0284C7`) |
+| Bloco | Categoria Oficial | Ícone | Cor Temática | Foco Pedagógico |
+|---|---|---|---|---|
+| **Q1 – Q5** | Vacinação | 🩺 | Azul (`#2563EB`) | Importância das vacinas em filhotes, cães/gatos que vivem dentro de casa e acompanhamento veterinário contínuo. |
+| **Q6 – Q10** | Castração | 🐶 | Roxo (`#7C3AED`) | Prevenção de doenças, controle populacional humanitário e redução do abandono em animais com família ou de rua. |
+| **Q11 – Q15** | Alimentação e cuidados | 🍎 | Âmbar (`#D97706`) | Riscos de alimentos humanos (como chocolate), necessidade de água limpa/fresca diária, ração adequada e dever de cuidado. |
+| **Q16 – Q20** | Maus-tratos e abandono | ❤️ | Rosa (`#DB2777`) | Reconhecimento de maus-tratos (agressão, sol sem abrigo/água), senciência animal, repúdio ao abandono de idosos e pedido de ajuda a adultos de confiança. |
+| **Q21 – Q25** | SMDA e SaquaPet | 🏛️ | Azul SaquaPet (`#0284C7`) | Políticas públicas da SMDA, ações do SaquaPet, adoção responsável, respeito aos animais comunitários e responsabilidade compartilhada com a população. |
 
-### Gabarito Oficial do Organizador
+### 📋 Gabarito Oficial do Organizador
 
 Distribuição oficial: **19 Verdadeiras (V)** e **6 Falsas (F)** (questões **2, 4, 8, 11, 18 e 25**).
 
@@ -61,62 +62,108 @@ Distribuição oficial: **19 Verdadeiras (V)** e **6 Falsas (F)** (questões **2
 
 ---
 
-## 🖥️ Engenharia & UX para Samsung Flip 72" (Single-Touch Kiosk)
+## 🏆 Sistema de Pontuação e Títulos
 
-A interface em **SolidJS + TypeScript** foi desenhada especificamente para as características físicas de uma lousa digital de **72 polegadas sem multitouch confiável**:
+Ao finalizar as 25 perguntas, o jogo calcula automaticamente o aproveitamento geral e por categoria (`src/utils/quizEngine.ts`), celebrando com confetes em `<canvas>` 60 FPS e concedendo um certificado comemorativo:
 
-- **Ergonomia *Lower-Zone Reach* (Alcance Infantil):** Todos os botões principais de ação (`TOQUE PARA JOGAR`, seletor `Sequencial / Embaralhado`, `VERDADEIRO`, `FALSO`, `PRÓXIMA PERGUNTA`, `JOGAR NOVAMENTE` e `INÍCIO`) ficam posicionados na **zona inferior da tela**, ao alcance confortável de crianças de 6 a 13 anos. A metade superior/central exibe logo, progresso, fotos e textos com `pointer-events: none`.
-- **Protocolo Single-Touch (`onPointerDown` + `isPrimary` + `isLocked`):**
-  - Todos os botões reagem imediatamente no evento `onPointerDown` (eliminando o atraso do `onClick` na lousa);
-  - Toques secundários ou apoio acidental de palma (`!e.isPrimary`) são ignorados;
-  - Uma **trava dupla** (flag síncrona `transitionLock` + signal reativo `isLocked` de `350ms` no `App.tsx`, além de travas locais em `AttractMode`, `GameHeader` e `VictoryModal`) impede duplo toque ou saltos acidentais de pergunta.
-- **CSS Touch Shield Global:** `src/index.css` trava o viewport em `100vw` × `100dvh` com `overflow: hidden !important`, `position: fixed`, `touch-action: none`, `user-select: none`, `-webkit-touch-callout: none` e barras de rolagem ocultas. O `App.tsx` também bloqueia `contextmenu`, `dragstart` e `selectstart`.
-- **Áudio 100% Offline via Web Audio API:** `src/utils/sound.ts` sintetiza cliques, acordes alegres de acerto, tons suaves de incentivo no erro, transição de categoria e fanfarra de vitória em tempo real usando `AudioContext` (sem arquivos `.mp3`/`.wav` externos e com controle de mudo `🔊/🔇` no cabeçalho).
-- **Inatividade (45s) & Auto-Reset na Vitória (25s):**
-  - Durante a partida (`playing`), um timer global de **45 segundos** (`45_000 ms`) monitora `pointerdown` e `touchstart` em fase de captura e retorna automaticamente ao *Attract Mode* caso o totem seja abandonado;
-  - Na tela final de certificado (`VictoryModal`), um contador regressivo de **25 segundos** exibe confetes em Canvas (`Confetti.tsx`), o título conquistado (ex.: *Guardião dos Animais de Saquarema*) e o desempenho nas 5 categorias antes de retornar ao início.
-- **Paleta Divertida & Estampas SVG Offline:** Fundo claro creme (`#FFFBF0` / `#FEF3C7`) com estampa SVG inline repetida de patinhas, ossinhos e corações (`--saqua-pattern-svg`), alto contraste (`#0F172A`), botões táteis 3D e fotos reais locais da SMDA (`src/assets/smda/1.webp` a `8.webp`).
+| Aproveitamento | Medalha | Título Conquistado |
+|---:|---|---|
+| **85% a 100%** (22–25 acertos) | 🏆 | **Guardião dos Animais de Saquarema** |
+| **60% a 84%** (15–21 acertos) | 🌟 | **Amigo Fiel dos Pets** |
+| **35% a 59%** (9–14 acertos) | 🐾 | **Protetor Aprendiz SaquaPet** |
+| **0% a 34%** (0–8 acertos) | 💙 | **Explorador SaquaPet** |
 
 ---
 
-## 🤖 Fluxo Multiagêntico e Skills do Projeto
+## 🖥️ Engenharia de Interface para Samsung Flip 72" (Single-Touch)
 
-O projeto conta com diretrizes técnicas e de identidade visual documentadas em `.agents/skills/`:
+Lousas digitais de grande formato usadas em eventos públicos exigem blindagem física e tátil específica para crianças:
 
-- [`.agents/skills/samsung-flip-totem-ux/SKILL.md`](.agents/skills/samsung-flip-totem-ux/SKILL.md) — Padrões de CSS Touch Shield, `onPointerDown` + `isPrimary` + trava `isLocked`, regra *Lower-Zone Reach*, timer de inatividade de 45s, Web Audio API offline e regras estritas de TypeScript (`tsconfig.app.json`).
-- [`.agents/skills/smda-saquapet-branding/SKILL.md`](.agents/skills/smda-saquapet-branding/SKILL.md) — Paleta divertida da causa animal, estampa SVG offline, mapeamento dos assets oficiais (`logo_edu.png` e `1.webp` a `8.webp`), as 5 categorias e o tom pedagógico infantil.
+1. **Ergonomia *Lower-Zone Reach* (Alcance Infantil):**
+   - A metade superior concentra a faixa institucional contínua (logo da Secretaria à esquerda, nome do jogo em seguida e indicadores à direita), trilha de categorias, foto do pet e enunciado com tipografia escalável via `clamp()`.
+   - Todos os botões principais de ação (`Sequencial / Embaralhado`, `TOQUE PARA JOGAR 🐾`, `VERDADEIRO`, `FALSO`, `PRÓXIMA PERGUNTA ➡️`, `JOGAR NOVAMENTE 🔄` e `INÍCIO 🏠`) permanecem posicionados na **zona inferior da tela**, ao alcance confortável de crianças menores.
+2. **Protocolo Single-Touch (`onPointerDown` + `isPrimary` + `isLocked`):**
+   - Resposta instantânea no `onPointerDown` sem esperar o atraso de eventos `click` em displays touch;
+   - Rejeição automática de toques secundários ou apoio acidental da palma da mão (`if (!e.isPrimary) return;`);
+   - Trava dupla síncrona (`transitionLock` + `isLocked` de `350ms` em `src/App.tsx`, além de travas nos botões de ação) evitando duplo disparo ou pulo acidental de perguntas.
+3. **CSS Touch Shield Global (`src/index.css`):**
+   - Viewport travado em `100vw` × `100dvh` (`position: fixed`, `overflow: hidden !important`), barras de rolagem ocultas, `touch-action: none`, `user-select: none`, `-webkit-touch-callout: none` e bloqueio de `contextmenu`, `dragstart` e `selectstart`.
+4. **Identidade Visual & Estampas Offline:**
+   - Paleta alegre de alto contraste (`#FFB703` Amarelo Sol, `#0284C7` Azul SaquaPet, `#06D6A0` Turquesa, `#10B981` Verdadeiro, `#EF4444` Falso, `#FFFBF0` Fundo Creme), estampa SVG inline repetida de patinhas, ossinhos e corações (`--saqua-pattern-svg`), e fotos reais locais em WebP (`src/assets/smda/1.webp` a `8.webp`).
+5. **Áudio Procedural Offline (Web Audio API):**
+   - `src/utils/sound.ts` sintetiza som de clique, acorde positivo de acerto, tom suave e acolhedor no erro, transição de categoria e fanfarra de vitória diretamente via `AudioContext`, sem arquivos externos e com botão rápido `🔊/🔇 Som` no cabeçalho.
+6. **Reset Automático para Totem Público:**
+   - **45 segundos** sem toque durante a partida retorna automaticamente ao *Attract Mode*;
+   - **25 segundos** na tela de vitória retorna automaticamente à tela inicial para o próximo participante.
 
 ---
 
-## 🚀 Comandos Disponíveis
+## 🤖 Arquitetura Multiagêntica & Skills do Projeto
 
-Os comandos abaixo utilizam **Bun** (gerenciador configurado com `bun.lock`):
+O projeto foi construído de forma modular através de um pipeline multiagêntico coordenado e documentado por *skills* locais em `.agents/skills/`:
+
+| Agente | Responsabilidade | Principais Entregas |
+|---|---|---|
+| **0. `skill-architect`** | Preparação do ambiente, Git, Vitest/jsdom, cópia de assets SMDA e criação das *skills* | [`.agents/skills/samsung-flip-totem-ux/SKILL.md`](.agents/skills/samsung-flip-totem-ux/SKILL.md), [`.agents/skills/smda-saquapet-branding/SKILL.md`](.agents/skills/smda-saquapet-branding/SKILL.md) |
+| **1. `data-audio-agent`** | Tipagem estrita, banco das 25 questões + gabarito, motor lógico e áudio offline | `src/types.ts`, `src/data/questionsData.ts`, `src/utils/quizEngine.ts`, `src/utils/sound.ts` |
+| **2. `theme-attract-agent`** | Identidade visual animal, Touch Shield, tela inicial, confetes e tela final | `src/index.css`, `src/App.css`, `src/components/AttractMode.tsx`, `src/components/Confetti.tsx`, `src/components/VictoryModal.tsx` |
+| **3. `gameplay-ui-agent`** | Cabeçalho, cartão de questão, feedback educativo, integração e HTML kiosk | `src/components/GameHeader.tsx`, `src/components/QuestionCard.tsx`, `src/components/FeedbackOverlay.tsx`, `src/App.tsx`, `index.html` |
+| **4. `unit-test-agent`** | Suíte automatizada de testes unitários para gabarito, categorias e motor | `src/__tests__/questionsData.test.ts` (30 testes), `src/__tests__/quizEngine.test.ts` (16 testes) |
+| **5. `qa-verifier-agent`** | Auditoria ponta a ponta, testes/build, validação do servidor local e Git | Auditoria completa, documentação e commits semânticos em português |
+
+---
+
+## 🛠️ Pré-requisitos e Instalação
+
+- **[Bun](https://bun.sh/)** `v1.x` (ou Node.js 20+ com gerenciador compatível)
+- Navegador moderno com suporte a ES2023, Pointer Events e Web Audio API (Google Chrome / Chromium recomendados para modo Kiosk)
+
+### 1. Clonar o repositório via SSH
 
 ```bash
-# Instalar dependências
-bun install
+git clone git@github.com:sistemainternosmecict/jogo_quiz_smda.git
+cd jogo_quiz_smda
+```
 
-# Subir servidor de desenvolvimento Vite (http://127.0.0.1:5173)
+### 2. Instalar dependências
+
+```bash
+bun install
+```
+
+### 3. Comandos de Desenvolvimento, Testes e Produção
+
+```bash
+# Iniciar servidor de desenvolvimento Vite (http://127.0.0.1:5173)
 bun run dev
 
-# Executar suíte completa de testes unitários (Vitest + jsdom)
+# Executar suíte completa de testes unitários (46 testes em Vitest + jsdom)
 bun run test
 
-# Checagem estrita TypeScript (tsc -b) + build de produção em dist/
+# Verificar tipagem TypeScript estrita (tsc -b) e gerar build otimizada em dist/
 bun run build
 
-# Visualizar build de produção localmente
-bun run preview
+# Servir a build de produção localmente para validação ou totem
+bun run preview -- --host 127.0.0.1 --port 4173
 ```
 
 ---
 
-## 📺 Modo Kiosk Recomendado (Samsung Flip 72")
+## 🎮 Guia Rápido de Uso na Lousa Digital
 
-Para executar a aplicação em tela cheia na lousa digital **Samsung Flip 72"** (conectada a um PC/mini-PC Windows ou Linux rodando Chromium ou Google Chrome):
+1. **Na Tela Inicial (*Attract Mode*):**
+   - Escolha na parte inferior entre **🔢 Sequencial (1 a 25)** (ordem didática das 5 categorias) ou **🔀 Embaralhado** (ordem aleatória por partida);
+   - Toque no botão gigante **TOQUE PARA JOGAR 🐾** (esse primeiro toque também desbloqueia o áudio do navegador).
+2. **Durante a Partida:**
+   - Leia a afirmação com a criança na parte superior e toque em **✅ VERDADEIRO** ou **❌ FALSO** na metade inferior;
+   - Leia junto a explicação educativa exibida no feedback e toque em **PRÓXIMA PERGUNTA ➡️**;
+   - Use o cabeçalho superior caso queira silenciar os sons (**🔊/🔇 Som**), reiniciar (**🔄 REINICIAR**) ou voltar ao início (**🏠 INÍCIO**).
+3. **Finalização:**
+   - Confira o título de Guardião conquistado, os acertos em cada uma das 5 categorias e toque em **JOGAR NOVAMENTE 🔄** ou aguarde o retorno automático em **25 segundos**.
 
-1. Gere a build de produção (`bun run build`) e sirva a pasta `dist/` localmente (ou execute `bun run preview -- --host 127.0.0.1 --port 4173`).
-2. Inicie o navegador em modo quiosque desativando gestos de navegação por arrasto e menus contextuais:
+### 📺 Execução em Modo Kiosk (Samsung Flip 72")
+
+Para abrir sem barras de endereço, bloqueando gesto de voltar/pinça e menus de contexto no Chrome/Chromium:
 
 ```bash
 # Linux (Chromium / Google Chrome)
@@ -136,11 +183,18 @@ google-chrome \
 chrome.exe --kiosk --incognito --noerrdialogs --disable-infobars --disable-pinch --overscroll-history-navigation=0 --autoplay-policy=no-user-gesture-required http://127.0.0.1:4173
 ```
 
-> **Dica:** Ao tocar em `TOQUE PARA JOGAR 🐾`, o próprio toque do usuário também desbloqueia o `AudioContext` da Web Audio API caso o navegador exija interação prévia.
+---
+
+## 🧪 Cobertura dos Testes Unitários
+
+A suíte executada via `bun run test` verifica automaticamente **46 casos de teste** divididos em dois arquivos:
+
+- **`src/__tests__/questionsData.test.ts` (30 testes):** valida exatamente 25 questões (`id` e `number` de `1` a `25`), integridade das 5 categorias (5 perguntas por categoria), presença de explicações e imagens válidas, contagem oficial (`19` Verdadeiras e `6` Falsas) e conferência individual de Q1 a Q25 contra o gabarito oficial.
+- **`src/__tests__/quizEngine.test.ts` (16 testes):** valida `getQuestionsForSession` (sequencial e embaralhado determinístico sem mutação), `evaluateAnswer`, `createAnswerRecord`, `getGuardianRank`, `calculateScoreStats`, `getCategoryProgress` e execução segura do sintetizador `sounds` em `jsdom`.
 
 ---
 
-## 📁 Estrutura de Diretórios
+## 📁 Estrutura do Projeto
 
 ```text
 quiz_saqua_pet/
@@ -153,7 +207,7 @@ quiz_saqua_pet/
 ├── public/
 │   ├── favicon.svg
 │   ├── icons.svg
-│   └── logo_edu.png                   # Logo oficial servida em /logo_edu.png
+│   └── logo_edu.png                   # Logo institucional servida em /logo_edu.png
 ├── src/
 │   ├── __tests__/
 │   │   ├── questionsData.test.ts      # Validação das 25 perguntas e gabarito oficial
@@ -162,10 +216,10 @@ quiz_saqua_pet/
 │   │   └── smda/
 │   │       └── 1.webp .. 8.webp       # Fotos oficiais de cães e gatos da SMDA
 │   ├── components/
-│   │   ├── AttractMode.tsx            # Tela inicial + seleção Sequencial/Embaralhado
-│   │   ├── Confetti.tsx               # Animação de confetes 60fps em Canvas
+│   │   ├── AttractMode.tsx            # Tela inicial com cabeçalho em faixa + seleção de modo
+│   │   ├── Confetti.tsx               # Animação de confetes 60 FPS em Canvas
 │   │   ├── FeedbackOverlay.tsx        # Explicação educativa após cada resposta
-│   │   ├── GameHeader.tsx             # Logo, trilha das 5 categorias, HUD e Som/Reiniciar/Início
+│   │   ├── GameHeader.tsx             # Cabeçalho da partida com trilha, HUD e ações
 │   │   ├── QuestionCard.tsx           # Cartão da pergunta e botões VERDADEIRO / FALSO
 │   │   └── VictoryModal.tsx           # Certificado final, placar por tema e auto-reset 25s
 │   ├── data/
@@ -189,3 +243,10 @@ quiz_saqua_pet/
 ├── tsconfig.node.json
 └── vite.config.ts
 ```
+
+---
+
+## 🏛️ Créditos e Realização
+
+- **Secretaria Municipal dos Direitos dos Animais de Saquarema (SMDA)** — Programa **SaquaPet**
+- **Prefeitura Municipal de Saquarema**
